@@ -31,7 +31,7 @@ public class HashTable<K, V> {
 
     @SuppressWarnings("unchecked")
     public HashTable(int capacity) {
-        table = new LinkedList[capacity]; // массив списков
+        table = new LinkedList[capacity]; 
         size = 0;
     }
 
@@ -55,33 +55,33 @@ public class HashTable<K, V> {
                 return;
             }
         }
-        // если нет ключа добавить новую пару
+        
         table[index].add(new Entry<>(key, value));
-        size++; // увелич размер
+        size++; 
     }
-    // получение значения по ключу
+    
     public V get(K key) {
-        int index = hash(key); // получаем индекс
+        int index = hash(key); 
 
         if (table[index] != null) {
-            for (Entry<K, V> entry : table[index]) {//поиск нужного ключа
+            for (Entry<K, V> entry : table[index]) {
                 if (entry.getKey().equals(key)) {
-                    return entry.getValue();//вернуть значение
+                    return entry.getValue();
                 }
             }
         }
 
         return null;
     }
-    // удаление элемента по ключу
+   
     public void remove(K key) {
-        int index = hash(key); // получаем индекс
+        int index = hash(key); 
 
         if (table[index] != null) {
             for (Entry<K, V> entry : table[index]) {
                 if (entry.getKey().equals(key)) {
-                    table[index].remove(entry); // удаляем элемент
-                    size--; // уменьшаем размер
+                    table[index].remove(entry); 
+                    size--; 
                     return;
                 }
             }

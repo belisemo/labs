@@ -15,6 +15,7 @@ public abstract class Bicycle {
 
     public Bicycle() {
         this("Без названия", "Неизвестно", 0);
+    }
 
     public String getBrand() {
         return brand;
